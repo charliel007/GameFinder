@@ -8,7 +8,14 @@ namespace GameFinder.Data.Entities
 {
     public class GenreEntity
     {
-        [Key]
+         [Key]
         public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        [ForeignKey(nameof (Game))]
+        public int GameId { get; set; }
+
+        public GameEntity Game { get; set; }
     }
 }
