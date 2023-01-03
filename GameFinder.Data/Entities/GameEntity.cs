@@ -14,9 +14,9 @@ namespace GameFinder.Data.Entities
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required]
-        public string Genre { get; set; }
-        [Required]
+        
+        public List<GenreEntity> Genre { get; set; }
+        
         public List<GameSystemEntity> GameSystems { get; set; }
     }
 }
