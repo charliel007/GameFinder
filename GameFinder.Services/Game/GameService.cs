@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GameFinder.Data;
-using GameFinder.Data.Entities;
 using GameFinder.Models.GameModels;
 
 namespace GameFinder.Services.Game
@@ -16,7 +15,7 @@ namespace GameFinder.Services.Game
         // 1. Bring in the database through dependency injection
         private ApplicationDbContext _context;
 
-        private readonly ApplicationDbContext _context;
+        // private readonly ApplicationDbContext _context;
 
         public GameService(ApplicationDbContext context)
         {
@@ -50,6 +49,7 @@ namespace GameFinder.Services.Game
                 Id = g.Id,
                 Title = g.Title
             }).ToListAsync();
+        }
 
         public async Task<bool> CreateGameAsync(GameCreate model)
         {

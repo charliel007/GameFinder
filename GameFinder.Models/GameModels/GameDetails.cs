@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
     public string Description { get; set; }
 
-    public string Genre { get; set; }
+    public List<GenreEntity> Genre { get; set; }
     public List<GameSystemEntity> GameSystems { get; set; }
 
     }
