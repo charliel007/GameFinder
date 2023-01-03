@@ -5,8 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GameFinder.Data.Entities
-{
+
+
     public class GameSystemEntity
     {
         [Key]
@@ -19,4 +19,3 @@ namespace GameFinder.Data.Entities
 
         public GameEntity Game { get; set; }
     }
-}
