@@ -7,6 +7,7 @@ namespace GameFinder.Services.Genre
 {
     public interface IGenreService
     {
-        
+
+
     }
 }
