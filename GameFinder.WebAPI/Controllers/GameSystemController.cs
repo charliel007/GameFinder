@@ -2,12 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GameFinder.Services.GameSystem;
+
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GameFinder.WebAPI.Controllers
-{
+
     [Route("api/[controller]")]
     [ApiController]
     public class GameSystemController : ControllerBase
@@ -17,5 +16,7 @@ namespace GameFinder.WebAPI.Controllers
         {
             _gameSystemService = gameSystemService;
         }
+
     }
-}
+
+

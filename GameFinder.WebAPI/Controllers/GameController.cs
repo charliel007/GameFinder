@@ -6,8 +6,7 @@ using GameFinder.Services.Game;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GameFinder.WebAPI.Controllers
-{
+
     [Route("api/[controller]")]
     [ApiController]
     public class GameController : ControllerBase
@@ -17,5 +16,16 @@ namespace GameFinder.WebAPI.Controllers
         {
             _gameService = gameService;
         }
+
+        [HttpGet("gameId:int")]
+        public async Task<IActionResult> GetById([FromRoute] int gameId)
+        {
+            // var gameService = await _gameService.(gameId);
+            // if (gameService is null)
+            // {
+            //     return NotFound();
+            // }
+            return Ok();
+        }
     }
-}
+
