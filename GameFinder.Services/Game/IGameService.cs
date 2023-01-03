@@ -4,12 +4,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using GameFinder.Models.GameModels;
 
-namespace GameFinder.Services.Game
-{
+
+
     public interface IGameService
     {
+
+    Task<GameDetails> GetGameByIdAsync(int gameId);
+    Task<List<GameListItem>> GetGames();
+
         Task<bool> CreateGameAsync(GameCreate model);
         Task<bool> EditGameAsync(GameEdit request);
         Task<bool> DeleteGameAsync(int gameId);
+
     }
-}
