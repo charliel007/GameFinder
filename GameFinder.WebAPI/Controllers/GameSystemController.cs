@@ -17,6 +17,23 @@ using Microsoft.AspNetCore.Mvc;
             _gameSystemService = gameSystemService;
         }
 
+         [HttpGet]
+        public async Task<IActionResult> GetGameSystems()
+        {
+            var console = await _gameSystemService.GetGameSystems();
+            return Ok(console);
+        }
+
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> GetGameSystem(int id)
+        {
+            var console = await _gameSystemService.GetGameSystemById(id);
+            if (console is null)
+                return NotFound();
+            else
+                return Ok(console);
+        }
+
     }
 
 
