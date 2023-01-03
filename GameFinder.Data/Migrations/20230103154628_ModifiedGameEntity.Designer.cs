@@ -3,6 +3,7 @@ using GameFinder.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameFinder.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230103154628_ModifiedGameEntity")]
+    partial class ModifiedGameEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,6 +33,10 @@ namespace GameFinder.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Genre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -100,7 +107,7 @@ namespace GameFinder.Data.Migrations
             modelBuilder.Entity("GameFinder.Data.Entities.GenreEntity", b =>
                 {
                     b.HasOne("GameFinder.Data.Entities.GameEntity", "Game")
-                        .WithMany("Genre")
+                        .WithMany()
                         .HasForeignKey("GameId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -111,8 +118,6 @@ namespace GameFinder.Data.Migrations
             modelBuilder.Entity("GameFinder.Data.Entities.GameEntity", b =>
                 {
                     b.Navigation("GameSystems");
-
-                    b.Navigation("Genre");
                 });
 #pragma warning restore 612, 618
         }

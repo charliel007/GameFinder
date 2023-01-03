@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
     public class GameDetails
     {
+
     public int Id { get; set; }
     
     public string Title { get; set; }
@@ -15,4 +16,5 @@ using System.Threading.Tasks;
 
     public string Genre { get; set; }
     public List<GameSystemEntity> GameSystems { get; set; }
+
     }
